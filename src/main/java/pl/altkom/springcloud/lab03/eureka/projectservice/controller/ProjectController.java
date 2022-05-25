@@ -36,12 +36,12 @@ public class ProjectController {
     }
 
     @PostMapping
-    public Project addProject(@Valid @RequestBody final CreateProjectRequest request) {
-        return projectService.addProject(request);
+    public Project createProject(@Valid @RequestBody final CreateProjectRequest request) {
+        return projectService.createProject(request);
     }
 
     @PutMapping("/{id}")
-    public Project modifyProject(@PathVariable("id") final Long projectId, @Valid @RequestBody final UpdateProjectRequest request) {
-        return projectService.modifyProject(projectId, request);
+    public Project updateProject(@PathVariable("id") final Long projectId, @Valid @RequestBody final UpdateProjectRequest request) {
+        return projectService.updateProject(projectId, request);
     }
 }

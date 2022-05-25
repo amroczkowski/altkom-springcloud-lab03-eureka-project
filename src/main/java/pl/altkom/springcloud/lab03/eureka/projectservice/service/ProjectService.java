@@ -35,13 +35,12 @@ public class ProjectService {
         return ResponseMapper.map(project, employees);
     }
 
-    public Project addProject(final CreateProjectRequest request) {
+    public Project createProject(final CreateProjectRequest request) {
         final pl.altkom.springcloud.lab03.eureka.projectservice.repository.model.Project savedProject = projectRepository.save(RequestMapper.bind(request));
-        final List<Employee> employees = pl.altkom.springcloud.lab03.eureka.projectservice.client.mapper.ResponseMapper.map(employeeClient.getEmployees());
-        return ResponseMapper.map(savedProject, employees);
+        return ResponseMapper.map(savedProject, List.of());
     }
 
-    public Project modifyProject(final Long projectId, final UpdateProjectRequest request) {
+    public Project updateProject(final Long projectId, final UpdateProjectRequest request) {
 
         final pl.altkom.springcloud.lab03.eureka.projectservice.repository.model.Project sourceProject = projectRepository.findById(projectId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
