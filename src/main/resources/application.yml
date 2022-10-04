@@ -6,7 +6,7 @@ spring:
 
 logging:
   level:
-    pl.altkom.springcloud.lab02:.feign.projectservice.client: DEBUG
+    pl.altkom.springcloud.lab03.eureka.projectservice.client: DEBUG
 feign:
   client:
     config:
@@ -20,7 +20,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
 
 management:
   endpoints:
